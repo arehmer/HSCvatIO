@@ -874,10 +874,7 @@ class CVAT_DataMgr(hdf5_mgr):
         bds_index = self.load_index()
         
         # Initialize the CVATTaskMgr
-        user = self.cvat_credentials['user']
-        pw = self.cvat_credentials['pw']
-        task_mgr = CVATTaskMgr(credentials = (user,pw))
-        
+        task_mgr = CVATTaskMgr()
         task_mgr.project = cvat_project
         
         # If no project was found, return with Exception
@@ -950,10 +947,8 @@ class CVAT_DataMgr(hdf5_mgr):
         # Get the cvat id of this task on the server
         task_id = int(bds_index.loc[idx,'cvat_task'])
         
-        # Initialize the CVATTaskMgr
-        user = self.cvat_credentials['user']
-        pw = self.cvat_credentials['pw']
-        task_mgr = CVATTaskMgr(credentials = (user,pw))
+        # Create an instance of the CVATTaskMgr
+        task_mgr = CVATTaskMgr()
         
         # Get the task
         task = task_mgr.get_task(task_id)

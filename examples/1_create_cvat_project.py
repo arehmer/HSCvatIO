@@ -33,7 +33,7 @@ meta_path = Path.cwd() /  'data/meta.csv'
 
 # %% The htpa data, metadata and later annotations will all be written to 
 # a .hdf5 file. Specify the path to that file here (should not exist in advance)
-hdf5_path = Path.cwd() /  (project_name+'.hdf5')
+hdf5_path = Path.cwd() / 'data' / (project_name+'.hdf5')
     
 # %%  Initialize an empty container for the video sequences
 data_mgr = CVAT_DataMgr(hdf5_path.as_posix(),mode='a')
